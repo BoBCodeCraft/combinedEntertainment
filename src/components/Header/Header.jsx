@@ -3,16 +3,11 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/your.png";
 
 export default function Header() {
-  const [divStatus, setdivStatus] = useState(true);
-  useEffect(() => {
-    // Set the div status to false (none) after the initial render
-    setdivStatus(false);
-  }, []);
-  function handleClick() {
-    setdivStatus(!divStatus);
-    let trigerDiv = document.querySelector("#try");
-    trigerDiv.style.display = divStatus ? "none" : "block";
-  }
+  const [menuVisible, setMenuVisible] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuVisible(!menuVisible);
+  };
 
   return (
     <header className="shadow sticky z-50 top-0">
@@ -43,9 +38,10 @@ export default function Header() {
               </Link>
             </div> */}
 
-            <div className="w-10 h-[50%]" onClick={handleClick}>
+            <div className="w-10 h-[50%]">
               <div>
                 <button
+                  onClick={toggleMenu}
                   type="button"
                   className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   id="user-menu-button"
@@ -70,7 +66,7 @@ export default function Header() {
                 aria-orientation="vertical"
                 aria-labelledby="user-menu-button"
                 tabIndex="-1"
-                id="try"
+                style={{ display: menuVisible ? "block" : "none" }}
               >
                 <Link
                   href="#"
