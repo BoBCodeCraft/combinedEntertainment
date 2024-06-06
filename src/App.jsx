@@ -56,10 +56,10 @@ function App() {
 
       const response = await fetch(searchUrl, searchOptions);
       const data = await response.json();
-      // console.log(data.artists.items[0].id);
+      console.log(data);
 
       const filteredData = data.artists.items.filter(
-        (item) => item.name && item.images
+        (item) => item.name && item.images.length > 0
       );
       // console.log(filteredData[0].id);
 

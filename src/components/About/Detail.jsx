@@ -20,9 +20,9 @@ function Detail(props) {
 
       const response = await fetch(albumsUrl, albumsOptions);
       const data = await response.json();
-      // console.log(data);
+      console.log(data);
       setalbums(data.items);
-      console.log(albums);
+      // console.log(albums);
     }
     getArtistAlbums();
   }, [artId]);
@@ -35,7 +35,7 @@ function Detail(props) {
             <Link key={item.id} to={`${item.id}`}>
               <DetailComponent
                 albumName={item.name}
-                image={item.images[2].url}
+                image={item.images[0].url}
                 key={item.id}
               />
             </Link>

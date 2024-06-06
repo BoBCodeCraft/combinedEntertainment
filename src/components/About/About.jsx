@@ -9,11 +9,11 @@ export default function SyncMusic(props) {
   // console.log(artId);
   return (
     <>
-      <div className="flex flex-col items-center justify-center bg-slate-700">
-        <div className=" w-auto flex flex-col items-center h-[50vh]">
-          <div className=" h-[60%] w-[70%] ">
+      <div className="flex flex-col  items-center justify-center lg:flex-row ">
+        <div className=" ">
+          {/* <div className=" h-[60%] w-[70%] ">
             <img src={brand} alt="" className=" object-cover mt-4" />
-          </div>
+          </div> */}
           <form className="d-flex p-2">
             <input
               className=" mt-7 form-control p-3 w-auto border-solid border-2 border-green-800 rounded-2xl lg:w-96 lg:mt-4"
@@ -26,23 +26,28 @@ export default function SyncMusic(props) {
             />
           </form>
         </div>
+        <div>
+          <h1 className=" text-center text-4xl font-extrabold my-20">
+            Top Artists
+          </h1>
 
-        <div className=" bg-slate-400 p-2 mx-10 mb-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-7 gap-4">
-          {props.results.map((item) => (
-            <Link key={item.id} to={`${item.id}`}>
-              <Card
-                // setartId={setartId}
-                artistId={item.id}
-                accessToken={props.accessToken}
-                // onClick={handleClick}
-                name={item.name}
-                key={item.id}
-                followers={item.followers.total}
-                genre={item.genres.length > 0 ? item.genres[0] : "Unknown"} // Updated to handle empty genres array
-                image={item.images.length > 0 ? item.images[0].url : ""} // Updated to handle empty images array
-              />
-            </Link>
-          ))}
+          <div className=" p-2 mx-10 mb-3 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-5 xl:grid-cols-7 gap-4">
+            {props.results.map((item) => (
+              <Link key={item.id} to={`${item.id}`}>
+                <Card
+                  // setartId={setartId}
+                  artistId={item.id}
+                  accessToken={props.accessToken}
+                  // onClick={handleClick}
+                  name={item.name}
+                  key={item.id}
+                  followers={item.followers.total}
+                  genre={item.genres.length > 0 ? item.genres[0] : "Unknown"} // Updated to handle empty genres array
+                  image={item.images.length > 0 ? item.images[0].url : ""} // Updated to handle empty images array
+                />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
       {/* <Outlet/> */}

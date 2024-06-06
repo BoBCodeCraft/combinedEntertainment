@@ -5,7 +5,7 @@ import litte from "../../assets/little.png";
 
 export default function Home() {
   return (
-    <div className="mx-auto bg-slate-200">
+    <div className="mx-auto ">
       <div className="grid grid-flow-col justify-center items-center p-4 pr-6 gap-8">
         <img className="w-96 m-2" src={preety} alt="image1" />
 

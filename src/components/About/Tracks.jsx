@@ -50,7 +50,7 @@ function Tracks({ accessToken }) {
   };
 
   return (
-    <div className=" px-8 grid grid-cols-1 rounded-2xl justify-center ">
+    <div className=" bg-lime-100 px-8 grid grid-flow-row rounded-2xl justify-center ">
       {tracks.map((track) => (
         <TracksComponent
           onClick={() => playTrack(track.preview_url)}
